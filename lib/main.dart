@@ -1,3 +1,4 @@
+import 'package:covid_19_statistic/view/home/countries/view/countries_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -31,8 +32,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-    );
+    return CountriesView();
   }
 }
