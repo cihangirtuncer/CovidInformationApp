@@ -103,7 +103,10 @@ class _StatisticModelStateView extends State<StatisticModelView> {
                   statisticListTile(
                       title: text(currentPopulationStatistic.toString())),
                   statisticListTile(
-                      title: text(currentContinentStatistic.toString())),
+                    title: text(
+                      currentContinentStatistic.toString(),
+                    ),
+                  ),
                   statisticListTile(
                     title: text(
                       currentDayStatistic.toString(),
