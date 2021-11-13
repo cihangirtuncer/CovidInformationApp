@@ -97,7 +97,9 @@ class _StatisticModelStateView extends State<StatisticModelView> {
                     children: [
                       text(currentDeathsStatistic.deathsNew),
                       text(currentDeathsStatistic.the1MPop),
-                      text(currentDeathsStatistic.total.toString()),
+                      text(
+                        currentDeathsStatistic.total.toString(),
+                      ),
                     ],
                   )),
                   statisticListTile(
