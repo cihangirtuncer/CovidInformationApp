@@ -1,4 +1,4 @@
-import 'package:covid_19_statistic/view/home/countries/view/countries_view.dart';
+import 'package:covid_19_statistic/view/countries/view/countries_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,11 +11,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'COVID 19',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'COVID'),
     );
   }
 }
