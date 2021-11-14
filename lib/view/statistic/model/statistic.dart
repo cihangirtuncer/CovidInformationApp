@@ -57,7 +57,7 @@ class Response {
             ? null
             : continentValues.map[json["continent"]],
         country: json["country"],
-        population: json["population"] == null ? null : json["population"],
+        population: json["population"],
         cases: Cases.fromJson(json["cases"]),
         deaths: Deaths.fromJson(json["deaths"]),
         tests: Tests.fromJson(json["tests"]),
@@ -69,7 +69,7 @@ class Response {
         "continent":
             continent == null ? null : continentValues.reverse[continent],
         "country": country,
-        "population": population == null ? null : population,
+        "population": population,
         "cases": cases.toJson(),
         "deaths": deaths.toJson(),
         "tests": tests.toJson(),
@@ -97,31 +97,38 @@ class Cases {
   int total;
 
   factory Cases.fromJson(Map<String, dynamic> json) => Cases(
-        casesNew: json["new"] == null ? null : json["new"],
-        active: json["active"] == null ? null : json["active"],
-        critical: json["critical"] == null ? null : json["critical"],
-        recovered: json["recovered"] == null ? null : json["recovered"],
-        the1MPop: json["1M_pop"] == null ? null : json["1M_pop"],
+        casesNew: json["new"],
+        active: json["active"],
+        critical: json["critical"],
+        recovered: json["recovered"],
+        the1MPop: json["1M_pop"],
         total: json["total"],
       );
 
   Map<String, dynamic> toJson() => {
-        "new": casesNew == null ? null : casesNew,
-        "active": active == null ? null : active,
-        "critical": critical == null ? null : critical,
-        "recovered": recovered == null ? null : recovered,
-        "1M_pop": the1MPop == null ? null : the1MPop,
+        "new": casesNew,
+        "active": active,
+        "critical": critical,
+        "recovered": recovered,
+        "1M_pop": the1MPop,
         "total": total,
       };
 }
 
 enum Continent {
+  // ignore: constant_identifier_names
   AFRICA,
+  // ignore: constant_identifier_names
   ASIA,
+  // ignore: constant_identifier_names
   SOUTH_AMERICA,
+  // ignore: constant_identifier_names
   NORTH_AMERICA,
+  // ignore: constant_identifier_names
   OCEANIA,
+  // ignore: constant_identifier_names
   EUROPE,
+  // ignore: constant_identifier_names
   ALL
 }
 
@@ -147,15 +154,15 @@ class Deaths {
   int total;
 
   factory Deaths.fromJson(Map<String, dynamic> json) => Deaths(
-        deathsNew: json["new"] == null ? null : json["new"],
-        the1MPop: json["1M_pop"] == null ? null : json["1M_pop"],
-        total: json["total"] == null ? null : json["total"],
+        deathsNew: json["new"],
+        the1MPop: json["1M_pop"],
+        total: json["total"],
       );
 
   Map<String, dynamic> toJson() => {
-        "new": deathsNew == null ? null : deathsNew,
-        "1M_pop": the1MPop == null ? null : the1MPop,
-        "total": total == null ? null : total,
+        "new": deathsNew,
+        "1M_pop": the1MPop,
+        "total": total,
       };
 }
 
@@ -169,13 +176,13 @@ class Tests {
   int total;
 
   factory Tests.fromJson(Map<String, dynamic> json) => Tests(
-        the1MPop: json["1M_pop"] == null ? null : json["1M_pop"],
-        total: json["total"] == null ? null : json["total"],
+        the1MPop: json["1M_pop"],
+        total: json["total"],
       );
 
   Map<String, dynamic> toJson() => {
-        "1M_pop": the1MPop == null ? null : the1MPop,
-        "total": total == null ? null : total,
+        "1M_pop": the1MPop,
+        "total": total,
       };
 }
 
@@ -186,8 +193,9 @@ class EnumValues<T> {
   EnumValues(this.map);
 
   Map<T, String> get reverse {
+    // ignore: prefer_conditional_assignment
     if (reverseMap == null) {
-      reverseMap = map.map((k, v) => new MapEntry(v, k));
+      reverseMap = map.map((k, v) => MapEntry(v, k));
     }
     return reverseMap;
   }

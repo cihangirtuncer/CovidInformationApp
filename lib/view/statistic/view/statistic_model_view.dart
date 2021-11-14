@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:covid_19_statistic/core/components/listtile_dart/statistic_info_listtile.dart';
+import 'package:covid_19_statistic/core/components/app_bar/main_app_bar.dart';
 import 'package:covid_19_statistic/core/components/text/text.dart';
 import 'package:covid_19_statistic/core/widget/null_return_widget.dart';
 import 'package:covid_19_statistic/core/widget/statistic_info.dart';
@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class StatisticModelView extends StatefulWidget {
-  StatisticModelView({Key key}) : super(key: key);
+  const StatisticModelView({Key key}) : super(key: key);
 
   @override
   _StatisticModelStateView createState() => _StatisticModelStateView();
@@ -52,75 +52,86 @@ class _StatisticModelStateView extends State<StatisticModelView> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return statistic == null
-        ? nullReturn()
-        : ListView.builder(
-            itemBuilder: (contex, index) {
-              final currentCaseStatistic = statistic.response[index].cases;
-              final currentContinentStatistic =
-                  statistic.response[index].continent;
-              final currentCountryStatistic = statistic.response[index].country;
-              final currentDayStatistic = statistic.response[index].day;
-              final currentDeathsStatistic = statistic.response[index].deaths;
-              final currentPopulationStatistic =
-                  statistic.response[index].population;
-              final currentTestsStatistic = statistic.response[index].tests;
-              final currentTimeStatistic = statistic.response[index].time;
+  Widget build(BuildContext conText) {
+    return Scaffold(
+      appBar: mainAppBar("Country", Colors.green.shade900),
+      backgroundColor: Colors.green,
+      body: statistic == null
+          ? circularProgressIndicator()
+          : ListView.builder(
+              itemBuilder: (contex, index) {
+                final currentCaseStatistic = statistic.response[index].cases;
+                final currentContinentStatistic =
+                    statistic.response[index].continent;
+                final currentCountryStatistic =
+                    statistic.response[index].country;
+                final currentDayStatistic = statistic.response[index].day;
+                final currentDeathsStatistic = statistic.response[index].deaths;
+                final currentPopulationStatistic =
+                    statistic.response[index].population;
+                final currentTestsStatistic = statistic.response[index].tests;
+                final currentTimeStatistic = statistic.response[index].time;
 
-              return statisticInfo(
-                [
-                  statisticListTile(
-                    title: Column(
-                      children: [
-                        text(currentCaseStatistic.active.toString()),
-                        text(currentCaseStatistic.critical.toString()),
-                        text(currentCaseStatistic.casesNew.toString()),
-                        text(currentCaseStatistic.recovered.toString()),
-                        text(currentCaseStatistic.the1MPop.toString()),
-                        text(currentCaseStatistic.total.toString())
-                      ],
+                return statisticInfo(
+                  children: [
+                    text(
+                      "number of active cases: ${currentCaseStatistic.active.toString()}" ??
+                          "",
                     ),
-                  ),
-                  statisticListTile(
-                      title: text(currentTimeStatistic.isUtc.toString())),
-                  statisticListTile(title: text(currentCountryStatistic)),
-                  statisticListTile(
-                      title: Column(
-                    children: [
-                      text(currentTestsStatistic.the1MPop),
-                      text(currentTestsStatistic.total.toString()),
-                    ],
-                  )),
-                  statisticListTile(
-                      title: Column(
-                    children: [
-                      text(currentDeathsStatistic.deathsNew),
-                      text(currentDeathsStatistic.the1MPop),
-                      text(
-                        currentDeathsStatistic.total.toString(),
-                      ),
-                    ],
-                  )),
-                  statisticListTile(
-                    title: text(
-                      currentPopulationStatistic.toString(),
+                    text(
+                        "Number of critical cases: ${currentCaseStatistic.critical.toString()}" ??
+                            ""),
+                    text(
+                        "number of new cases cases ${currentCaseStatistic.casesNew.toString()}" ??
+                            ""),
+                    text(
+                        "number of recovered cases: ${currentCaseStatistic.recovered.toString()}" ??
+                            ""),
+                    text(
+                        "number of the1MPop cases: ${currentCaseStatistic.the1MPop.toString()}" ??
+                            ""),
+                    text(
+                        "number of total cases: ${currentCaseStatistic.total.toString()}" ??
+                            ""),
+                    text(
+                      "Country: $currentCountryStatistic" ?? "",
                     ),
-                  ),
-                  statisticListTile(
-                    title: text(
-                      currentContinentStatistic.toString(),
+                    text(
+                      "number of the1MPop cases: ${currentTestsStatistic.the1MPop}" ??
+                          "",
                     ),
-                  ),
-                  statisticListTile(
-                    title: text(
-                      currentDayStatistic.toString(),
+                    text(
+                      "Population: ${currentPopulationStatistic.toString()}" ??
+                          "",
                     ),
-                  )
-                ],
-              );
-            },
-            itemCount: statistic.response?.length,
-          );
+                    text(
+                      " ${currentContinentStatistic.toString()}" ?? "",
+                    ),
+                    text(
+                      "Datatime: ${currentDayStatistic.toString()}" ?? "",
+                    ),
+                    text(
+                      "Death: ${currentDeathsStatistic.deathsNew}" ?? "",
+                    ),
+                    text(
+                        "Number of tests: ${currentTestsStatistic.total.toString()}" ??
+                            ""),
+                    text(
+                        "Number of deaths the1MPop: ${currentDeathsStatistic.the1MPop}" ??
+                            ""),
+                    text(
+                      "Number of total deaths : ${currentDeathsStatistic.total.toString()}" ??
+                          "",
+                    ),
+                    const SizedBox(
+                      width: 20,
+                      height: 100,
+                    )
+                  ],
+                );
+              },
+              itemCount: statistic.response?.length,
+            ),
+    );
   }
 }

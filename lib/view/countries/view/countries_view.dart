@@ -12,6 +12,6 @@ class CountriesView extends StatelessWidget {
           "COUNTRIES",
           Colors.green.shade900,
         ),
-        body: CountriesModelView());
+        body: const CountriesModelView());
   }
 }

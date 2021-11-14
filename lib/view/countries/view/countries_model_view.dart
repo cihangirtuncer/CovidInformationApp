@@ -3,11 +3,12 @@ import 'dart:convert';
 import 'package:covid_19_statistic/core/widget/countries_list_widget_.dart';
 import 'package:covid_19_statistic/core/widget/null_return_widget.dart';
 import 'package:covid_19_statistic/view/countries/model/countries.dart';
+import 'package:covid_19_statistic/view/statistic/view/statistic_model_view.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class CountriesModelView extends StatefulWidget {
-  CountriesModelView({Key key}) : super(key: key);
+  const CountriesModelView({Key key}) : super(key: key);
 
   @override
   _CountriesModelStateView createState() => _CountriesModelStateView();
@@ -50,15 +51,20 @@ class _CountriesModelStateView extends State<CountriesModelView> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext conText) {
     return countries == null
-        ? nullReturn()
+        ? circularProgressIndicator()
         : ListView.builder(
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             itemBuilder: (contex, index) {
               final currentCountry = countries.countryList[index];
 
-              return countriesListWidget(currentCountry, () {});
+              return countriesListWidget(currentCountry, () {
+                Navigator.push(
+                    conText,
+                    MaterialPageRoute(
+                        builder: (contex) => const StatisticModelView()));
+              });
             },
             itemCount: countries.countryList?.length,
           );
