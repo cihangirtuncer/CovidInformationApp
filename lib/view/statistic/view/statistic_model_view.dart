@@ -70,7 +70,7 @@ class _StatisticModelStateView extends State<StatisticModelView> {
                 final currentPopulationStatistic =
                     statistic.response[index].population;
                 final currentTestsStatistic = statistic.response[index].tests;
-                final currentTimeStatistic = statistic.response[index].time;
+                // final currentTimeStatistic = statistic.response[index].time;
 
                 return statisticInfo(
                   children: [
