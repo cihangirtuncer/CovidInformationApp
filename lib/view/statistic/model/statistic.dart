@@ -1,34 +1,12 @@
 class Statistic {
   Statistic({
-    this.statisticGet,
-    this.parameters,
-    this.errors,
-    this.results,
     this.response,
   });
 
-  String statisticGet;
-  List<dynamic> parameters;
-  List<dynamic> errors;
-  int results;
-  List<Response> response;
+  Response response;
 
-  factory Statistic.fromJson(Map<String, dynamic> json) => Statistic(
-        statisticGet: json["get"],
-        parameters: List<dynamic>.from(json["parameters"].map((x) => x)),
-        errors: List<dynamic>.from(json["errors"].map((x) => x)),
-        results: json["results"],
-        response: List<Response>.from(
-            json["response"].map((x) => Response.fromJson(x))),
-      );
-
-  Map<String, dynamic> toJson() => {
-        "get": statisticGet,
-        "parameters": List<dynamic>.from(parameters.map((x) => x)),
-        "errors": List<dynamic>.from(errors.map((x) => x)),
-        "results": results,
-        "response": List<dynamic>.from(response.map((x) => x.toJson())),
-      };
+  factory Statistic.fromJson(Map<String, dynamic> json) =>
+      Statistic(response: Response.fromJson(json["response"][0]));
 }
 
 class Response {

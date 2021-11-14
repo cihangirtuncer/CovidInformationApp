@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:covid_19_statistic/core/helper/api_helper.dart';
 import 'package:covid_19_statistic/core/widget/countries_list_widget_.dart';
 import 'package:covid_19_statistic/core/widget/null_return_widget.dart';
 import 'package:covid_19_statistic/view/countries/model/countries.dart';
@@ -26,12 +27,8 @@ class _CountriesModelStateView extends State<CountriesModelView> {
   getApi() async {
     try {
       final response = await http.get(
-        'https://covid-193.p.rapidapi.com/countries',
-        headers: {
-          'x-rapidapi-host': 'covid-193.p.rapidapi.com',
-          'x-rapidapi-key':
-              '7230f0073fmsh19c10074c514c59p16793ejsn6aa0e35fe867',
-        },
+        '${ApiHelper.url}countries',
+        headers: ApiHelper.headers,
       );
 
       if (response.statusCode == 200) {
@@ -63,7 +60,9 @@ class _CountriesModelStateView extends State<CountriesModelView> {
                 Navigator.push(
                     conText,
                     MaterialPageRoute(
-                        builder: (contex) => const StatisticModelView()));
+                        builder: (contex) => StatisticModelView(
+                              countryName: currentCountry,
+                            )));
               });
             },
             itemCount: countries.countryList?.length,
