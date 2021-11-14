@@ -26,7 +26,7 @@ statisticView({
             "Number of critical cases: ${currentCaseStatistic.critical.toString()}" ??
                 ""),
         text(
-            "Number of new cases cases ${currentCaseStatistic.casesNew.toString()}" ??
+            "Number of new cases ${currentCaseStatistic.casesNew.toString()}" ??
                 ""),
         text(
             "Number of recovered cases: ${currentCaseStatistic.recovered.toString()}" ??
