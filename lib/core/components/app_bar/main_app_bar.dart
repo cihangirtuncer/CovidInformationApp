@@ -6,7 +6,7 @@ AppBar mainAppBar(String title, Color color) {
     backgroundColor: color,
     title: Text(
       title,
-      style: const TextStyle(color: Colors.amber, fontSize: 25),
+      style: const TextStyle(fontSize: 25),
     ),
   );
 }
