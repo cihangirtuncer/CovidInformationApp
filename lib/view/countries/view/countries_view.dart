@@ -8,9 +8,10 @@ class CountriesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.grey.shade900,
         appBar: mainAppBar(
-          "COUNTRIES",
-          Colors.green.shade900,
+          "Countries",
+          Colors.black,
         ),
         body: const CountriesModelView());
   }

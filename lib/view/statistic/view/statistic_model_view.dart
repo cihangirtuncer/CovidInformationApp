@@ -1,10 +1,9 @@
 import 'dart:convert';
 
 import 'package:covid_19_statistic/core/components/app_bar/main_app_bar.dart';
-import 'package:covid_19_statistic/core/components/text/text.dart';
 import 'package:covid_19_statistic/core/helper/api_helper.dart';
 import 'package:covid_19_statistic/core/widget/null_return_widget.dart';
-import 'package:covid_19_statistic/core/widget/statistic_info.dart';
+import 'package:covid_19_statistic/view/statistic/view/statistic_view.dart';
 import 'package:covid_19_statistic/view/statistic/model/statistic.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -53,10 +52,10 @@ class _StatisticModelStateView extends State<StatisticModelView> {
   @override
   Widget build(BuildContext conText) {
     return Scaffold(
-        appBar: mainAppBar(widget.countryName, Colors.green.shade900),
-        backgroundColor: Colors.green,
+        appBar: mainAppBar(widget.countryName, Colors.black),
+        backgroundColor: Colors.grey.shade900,
         body: statistic == null
             ? circularProgressIndicator()
-            : statisticInfo(response: statistic.response));
+            : statisticView(response: statistic.response));
   }
 }
