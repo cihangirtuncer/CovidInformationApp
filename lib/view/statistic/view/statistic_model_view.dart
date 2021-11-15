@@ -51,11 +51,12 @@ class _StatisticModelStateView extends State<StatisticModelView> {
 
   @override
   Widget build(BuildContext conText) {
-    return Scaffold(
-        appBar: mainAppBar(widget.countryName, Colors.black),
-        backgroundColor: Colors.grey.shade900,
-        body: statistic == null
-            ? circularProgressIndicator()
-            : statisticView(response: statistic.response));
+    return statistic == null
+        ? circularProgressIndicator()
+        : StaticView(
+            response: statistic.response,
+            statistic: statistic,
+            countryName: widget.countryName,
+          );
   }
 }

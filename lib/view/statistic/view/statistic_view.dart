@@ -1,6 +1,25 @@
+import 'package:covid_19_statistic/core/components/app_bar/main_app_bar.dart';
 import 'package:covid_19_statistic/core/components/text/text.dart';
+import 'package:covid_19_statistic/core/widget/null_return_widget.dart';
 import 'package:covid_19_statistic/view/statistic/model/statistic.dart';
 import 'package:flutter/material.dart';
+
+class StaticView extends StatelessWidget {
+  final Statistic statistic;
+  final Response response;
+  final String countryName;
+  const StaticView({Key key, this.response, this.statistic, this.countryName})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: mainAppBar(countryName, Colors.black),
+      backgroundColor: Colors.grey.shade900,
+      body: statisticView(response: response),
+    );
+  }
+}
 
 statisticView({
   @required Response response,
