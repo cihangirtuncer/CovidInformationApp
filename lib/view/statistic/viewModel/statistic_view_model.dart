@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import 'package:covid_19_statistic/view/statistic/service/statistic_service.dart';
 import 'package:covid_19_statistic/view/statistic/view/statistic_view.dart';

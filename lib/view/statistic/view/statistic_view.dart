@@ -1,7 +1,8 @@
 import 'package:covid_19_statistic/core/components/app_bar/main_app_bar.dart';
-import 'package:covid_19_statistic/core/components/text/text.dart';
 import 'package:covid_19_statistic/view/statistic/model/statistic.dart';
 import 'package:flutter/material.dart';
+
+import '../../../product/widget/statistic_info_widget.dart';
 
 class StaticView extends StatelessWidget {
   final Response response;
@@ -35,50 +36,57 @@ statisticView({
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        text(
-          "Number of active cases: ${currentCaseStatistic.active.toString()}" ??
-              "",
+        StatisticInfoWidget(
+            data: "Number of active cases: ",
+            dataValue: currentCaseStatistic.active.toString() ?? ""),
+        StatisticInfoWidget(
+            data: "Number of critical cases: ",
+            dataValue: currentCaseStatistic.critical.toString() ?? ""),
+        StatisticInfoWidget(
+            data: "Number of new cases: ",
+            dataValue: currentCaseStatistic.casesNew.toString() ?? ""),
+        StatisticInfoWidget(
+            data: "Number of recovered cases: ",
+            dataValue: currentCaseStatistic.recovered.toString() ?? ""),
+        StatisticInfoWidget(
+            data: "Number of the1MPop cases: ",
+            dataValue: currentCaseStatistic.the1MPop.toString() ?? ""),
+        StatisticInfoWidget(
+            data: "Number of total cases: ",
+            dataValue: currentCaseStatistic.total.toString() ?? ""),
+        StatisticInfoWidget(
+          data: "Country: ",
+          dataValue: currentCountryStatistic.toString() ?? "",
         ),
-        text(
-            "Number of critical cases: ${currentCaseStatistic.critical.toString()}" ??
-                ""),
-        text(
-            "Number of new cases ${currentCaseStatistic.casesNew.toString()}" ??
-                ""),
-        text(
-            "Number of recovered cases: ${currentCaseStatistic.recovered.toString()}" ??
-                ""),
-        text(
-            "Number of the1MPop cases: ${currentCaseStatistic.the1MPop.toString()}" ??
-                ""),
-        text(
-            "Number of total cases: ${currentCaseStatistic.total.toString()}" ??
-                ""),
-        text(
-          "Country: $currentCountryStatistic" ?? "",
+        StatisticInfoWidget(
+          data: "Number of the1MPop cases: ",
+          dataValue: currentTestsStatistic.the1MPop.toString() ?? "",
         ),
-        text(
-          "Number of the1MPop cases: ${currentTestsStatistic.the1MPop}" ?? "",
+        StatisticInfoWidget(
+          data: "Population: ",
+          dataValue: currentPopulationStatistic.toString() ?? "",
         ),
-        text(
-          "Population: ${currentPopulationStatistic.toString()}" ?? "",
+        StatisticInfoWidget(
+          data: "Continent: ",
+          dataValue: currentContinentStatistic.name.toString() ?? "",
         ),
-        text(
-          currentContinentStatistic.toString() ?? "",
+        StatisticInfoWidget(
+          data: "Datatime: ",
+          dataValue: currentDayStatistic.toString() ?? "",
         ),
-        text(
-          "Datatime: ${currentDayStatistic.toString()}" ?? "",
+        StatisticInfoWidget(
+          data: "Death: ",
+          dataValue: currentDeathsStatistic.deathsNew.toString() ?? 0 ?? "",
         ),
-        text(
-          "Death: ${currentDeathsStatistic.deathsNew}" ?? "",
-        ),
-        text(
-            "Number of tests: ${currentTestsStatistic.total.toString()}" ?? ""),
-        text("Number of deaths the1MPop: ${currentDeathsStatistic.the1MPop}" ??
-            ""),
-        text(
-          "Number of total deaths : ${currentDeathsStatistic.total.toString()}" ??
-              "",
+        StatisticInfoWidget(
+            data: "Number of tests: ",
+            dataValue: currentTestsStatistic.total.toString() ?? ""),
+        StatisticInfoWidget(
+            data: "Number of deaths the1MPop: ",
+            dataValue: currentDeathsStatistic.the1MPop.toString() ?? ""),
+        StatisticInfoWidget(
+          data: "Number of total deaths : ",
+          dataValue: currentDeathsStatistic.total.toString() ?? "",
         ),
       ],
     ),
