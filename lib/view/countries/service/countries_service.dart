@@ -6,6 +6,7 @@ import '../../../product/constant/api_constant.dart';
 
 abstract class ICountriesService {
   Future<List<String>> getCountries();
+  Future<int> getAllCountriesCounterForTesting();
   final dio = Dio();
 }
 
@@ -25,4 +26,21 @@ class CountriesService extends ICountriesService {
       NullThrownError();
     }
   }
+
+@override
+   // ignore: missing_return
+   Future<int> getAllCountriesCounterForTesting() async {
+    dio.options.headers[ApiConstant.headerHost] = ApiConstant.headerHostValue;
+    dio.options.headers[ApiConstant.headerKey] = ApiConstant.headerKeyValue;
+    final response =
+        await dio.get('${ApiConstant.url}${ApiConstant.countries}');
+    try {
+      Countries countries = Countries.fromJson(response.data);
+      box.write("key", countries.countryList.length);
+      return countries.countryList.length;
+    } catch (e) {
+      NullThrownError();
+    }
+  }
+
 }

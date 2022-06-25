@@ -7,8 +7,22 @@ void main() {
     countriesService = CountriesService();
   });
 
-  test(" countries data is not null ", () async {
+  group("COUNTRIES DATAS TEST/", (){
+test(" countries data is not null ", () async {
     final listDatas = await countriesService.getCountries();
     expect(listDatas, isNotNull);
   });
+
+  test(" countries data list 235 length ", () async {
+    final listDatas = await countriesService.getAllCountriesCounterForTesting();
+    expect(listDatas, 235);
+  });
+
+  });
+  
+  tearDown( (){
+    countriesService.dio.close();
+  }
+    
+  );
 }

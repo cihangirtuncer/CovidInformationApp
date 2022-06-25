@@ -43,6 +43,8 @@ class Response {
         time: DateTime.parse(json["time"]),
       );
 
+  Future get testingDataName => null;
+
   Map<String, dynamic> toJson() => {
         "continent":
             continent == null ? null : continentValues.reverse[continent],
