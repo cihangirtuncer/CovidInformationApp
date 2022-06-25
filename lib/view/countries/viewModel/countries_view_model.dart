@@ -1,5 +1,4 @@
 import 'package:covid_19_statistic/product/constant/get_storage.dart';
-import 'package:covid_19_statistic/view/countries/model/countries.dart';
 import 'package:covid_19_statistic/view/countries/service/countries_service.dart';
 import 'package:covid_19_statistic/view/statistic/viewModel/statistic_view_model.dart';
 import 'package:flutter/material.dart';
@@ -15,11 +14,10 @@ class CountriesViewModel extends StatefulWidget {
 }
 
 class _CountriesModelStateView extends State<CountriesViewModel> {
-  Countries countries;
+  Future<List<String>> countriesData = CountriesService().getCountries();
 
   @override
   Widget build(BuildContext context) {
-    final countriesData = CountriesService().getCountries();
     return countriesData == null
         ? circularProgressIndicator()
         : FutureBuilder(
