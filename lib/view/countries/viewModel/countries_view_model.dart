@@ -27,7 +27,7 @@ class _CountriesModelStateView extends State<CountriesViewModel> {
                 children: [
                   Expanded(
                       child: ListView.builder(
-                          itemCount: box.read("key"),
+                          itemCount: box.read("countriesLength"),
                           itemBuilder: (context, index) {
                             return countriesListWidget(snapshot.data[index],
                                 () {

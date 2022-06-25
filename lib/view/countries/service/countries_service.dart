@@ -20,12 +20,13 @@ class CountriesService extends ICountriesService {
         await dio.get('${ApiConstant.url}${ApiConstant.countries}');
     try {
       Countries countries = Countries.fromJson(response.data);
-      box.write("key", countries.countryList.length);
+      box.write("countriesLength", countries.countryList.length);
       return countries.countryList;
     } catch (e) {
       NullThrownError();
     }
   }
+  
 
 @override
    // ignore: missing_return
@@ -36,7 +37,6 @@ class CountriesService extends ICountriesService {
         await dio.get('${ApiConstant.url}${ApiConstant.countries}');
     try {
       Countries countries = Countries.fromJson(response.data);
-      box.write("key", countries.countryList.length);
       return countries.countryList.length;
     } catch (e) {
       NullThrownError();
