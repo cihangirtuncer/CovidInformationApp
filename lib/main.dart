@@ -1,4 +1,4 @@
-import 'package:covid_19_statistic/view/countries/view/countries_view.dart';
+import 'view/countries/view/countries_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

@@ -1,6 +1,6 @@
-import 'package:covid_19_statistic/product/constant/get_storage.dart';
-import 'package:covid_19_statistic/view/countries/service/countries_service.dart';
-import 'package:covid_19_statistic/view/statistic/viewModel/statistic_view_model.dart';
+import '../../../product/constant/get_storage.dart';
+import '../service/countries_service.dart';
+import '../../statistic/viewModel/statistic_view_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../product/widget/countries_list_widget_.dart';

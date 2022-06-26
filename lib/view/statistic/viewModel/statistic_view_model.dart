@@ -1,7 +1,7 @@
 
-import 'package:covid_19_statistic/view/statistic/service/statistic_service.dart';
-import 'package:covid_19_statistic/view/statistic/view/statistic_view.dart';
-import 'package:covid_19_statistic/view/statistic/model/statistic.dart';
+import '../service/statistic_service.dart';
+import '../view/statistic_view.dart';
+import '../model/statistic.dart';
 import 'package:flutter/material.dart';
 
 import '../../../product/widget/null_return_widget.dart';

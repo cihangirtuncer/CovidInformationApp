@@ -1,4 +1,4 @@
-import 'package:covid_19_statistic/core/components/text/text.dart';
+import '../../core/components/text/text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

@@ -1,4 +1,4 @@
-import 'package:covid_19_statistic/view/statistic/model/statistic.dart';
+import '../model/statistic.dart';
 import 'package:dio/dio.dart';
 import '../../../product/constant/api_constant.dart';
 

@@ -1,5 +1,5 @@
-import 'package:covid_19_statistic/product/constant/get_storage.dart';
-import 'package:covid_19_statistic/view/countries/model/countries.dart';
+import '../../../product/constant/get_storage.dart';
+import '../model/countries.dart';
 import 'package:dio/dio.dart';
 
 import '../../../product/constant/api_constant.dart';
