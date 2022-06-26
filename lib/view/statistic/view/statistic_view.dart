@@ -1,5 +1,5 @@
 import '../../../core/components/app_bar/main_app_bar.dart';
-import '../model/statistic.dart';
+import '../model/statistic_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../product/widget/statistic_info_widget.dart';

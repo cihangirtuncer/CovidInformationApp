@@ -1,7 +1,7 @@
 
 import '../service/statistic_service.dart';
 import '../view/statistic_view.dart';
-import '../model/statistic.dart';
+import '../model/statistic_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../product/widget/null_return_widget.dart';

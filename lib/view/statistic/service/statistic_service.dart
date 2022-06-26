@@ -1,4 +1,4 @@
-import '../model/statistic.dart';
+import '../model/statistic_model.dart';
 import 'package:dio/dio.dart';
 import '../../../product/constant/api_constant.dart';
 

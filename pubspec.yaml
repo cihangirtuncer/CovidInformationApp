@@ -14,12 +14,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
   # Network  
   dio: ^4.0.6
+
   # State Management
   get: ^4.6.5
   get_storage: ^2.0.3
-  # UI utility
+
+  # core utility
   flutter_screenutil: ^5.5.3+2
 
 
